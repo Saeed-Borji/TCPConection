@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NLog;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -15,6 +16,8 @@ namespace WindowsFormsApptest1
              IPAddress AddressIP;
              int Port;
              TcpClient client;
+
+            //
 
              public TCPConnection1() 
              {

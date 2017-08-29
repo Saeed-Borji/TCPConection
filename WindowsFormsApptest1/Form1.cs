@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using System.Net;
 using System.Net.Sockets;
 using System.IO;
+using NLog;
+
 
 namespace WindowsFormsApptest1
 {
@@ -18,6 +20,11 @@ namespace WindowsFormsApptest1
         LVString CreateLV = new LVString();
         TCPConnection1 SimpleConenction = new TCPConnection1();
         string msgRev="";
+        //
+        private static Logger logger = LogManager.GetCurrentClassLogger();
+
+
+        //Logger logger = LogManager.GetLogger("POSSimulatorForm");
 
         public POSSimulatorForm()
         {
@@ -83,6 +90,13 @@ namespace WindowsFormsApptest1
         private void SENDbutton_Click(object sender, EventArgs e)
         {
             //create LVstring and sendBytebox display
+            logger.Trace("Sample trace message");
+            logger.Debug("Sample debug message");
+            logger.Info("Sample informational message");
+            logger.Warn("Sample warning message");
+            logger.Error("Sample error message");
+            logger.Fatal("Sample fatal error message");
+
             CreateLV.CreateLVString();
             this.Invoke(new EventHandler(DisplayText));
             //
